@@ -37,6 +37,11 @@ kubectl expose deployment {name of deployment} --type=LoadBalancer --name={name 
 kubectl get services {service name}
 ```
 
+## Get servers / external IP
+```
+kubectl get services {service name}
+```
+
 # Next JS App
 
 ## Containerize app
