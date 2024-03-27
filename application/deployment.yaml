@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/name: load-balancer-example
-  name: hello-world
+  name: my-app
 spec:
   replicas: 5
   selector:
@@ -15,7 +15,10 @@ spec:
         app.kubernetes.io/name: load-balancer-example
     spec:
       containers:
-        - image: gcr.io/google-samples/node-hello:1.0
-          name: hello-world
+        - image: 891377271885.dkr.ecr.eu-west-2.amazonaws.com/k8s-ecr:my-app
+          name: my-app
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: ecrsecret2

@@ -26,6 +26,24 @@ terraform destroy
 aws eks --region eu-west-2 update-kubeconfig --name {cluster-name}
 ```
 
+## Create namespace
+```
+kubectl create namespace my-app
+```
+
+## Create secret
+```
+kubectl create secret docker-registry ecrsecret --docker-server=891377271885.dkr.ecr.eu-west-2.amazonaws.com \
+  --docker-username=AWS \
+  --docker-password=$(aws ecr get-login-password) \
+  --namespace=my-app
+```
+
+## Deploy to EKS
+```
+kubectl apply -f deployment.yaml
+```
+
 ## Expose a resource as a new Kubernetes service
 
 ```
