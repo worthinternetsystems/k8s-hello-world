@@ -43,10 +43,26 @@ kubectl get services {service name}
 
 ### Build
 ```
+cd my-app
 docker compose -f docker-compose.yml build
 ```
 
 ### Run locally
 ```
+cd my-app
 docker compose -f docker-compose.yml up
+```
+
+## How to push a docker image to ECR
+
+Login to aws
+
+```
+aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 891377271885.dkr.ecr.eu-west-2.amazonaws.com
+```
+
+Push to ECR
+
+```
+docker push 891377271885.dkr.ecr.eu-west-2.amazonaws.com/k8s-ecr:my-app
 ```
