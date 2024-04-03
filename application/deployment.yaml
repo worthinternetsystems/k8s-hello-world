@@ -19,6 +19,6 @@ spec:
           name: my-app
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
       imagePullSecrets:
-        - name: ecrsecret2
+        - name: ecrsecret

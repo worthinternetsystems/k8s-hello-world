@@ -47,7 +47,7 @@ kubectl apply -f deployment.yaml
 ## Expose a resource as a new Kubernetes service
 
 ```
-kubectl expose deployment {name of deployment} --type=LoadBalancer --name={name of service}
+kubectl expose deployment {name of deployment} --type=LoadBalancer --name={name of service} --port=8080 --target-port=3000
 ```
 
 ## Get servers / external IP
